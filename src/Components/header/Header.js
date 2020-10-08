@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../header/Header.css";
 import { UserContext } from "../../App";
 import user from "../../Services/authService.js";
+import ChatIcon from "@material-ui/icons/Chat";
 function Header() {
   const state = user.getCurrentUser();
 
@@ -35,6 +36,11 @@ function Header() {
               <People fontSize="large" style={{ color: "black" }} />
             </IconButton>
           </Link>
+          <Link to="/chat">
+            <IconButton>
+              <ChatIcon fontSize="large" style={{ color: "black" }} />
+            </IconButton>
+          </Link>
 
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
@@ -47,11 +53,20 @@ function Header() {
           </div>
         </>
       ) : (
-        <div>
-          <img
-            src="https://res.cloudinary.com/saisricharan/image/upload/v1602106247/logo_yahlz7.png"
-            style={{ width: "10vw", height: "15vh" }}
-          />
+        <div className="custom__logo">
+          <Link to="/joinus">
+            <h1
+              src="https://res.cloudinary.com/saisricharan/image/upload/v1602106247/logo_yahlz7.png"
+              style={{
+                width: "5vw",
+                height: "10vh",
+                color: "#47AFE0",
+                fontFamily: "Brush Script MT, Brush Script Std, cursive",
+              }}
+            >
+              Logo
+            </h1>
+          </Link>
         </div>
       )}
     </div>

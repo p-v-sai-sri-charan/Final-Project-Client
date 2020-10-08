@@ -21,7 +21,7 @@ function Feed() {
   console.log(data);
   useEffect(() => {
     axios
-      .get(URL + "/post/allposts", {
+      .get(URL + "/post/following", {
         headers: header,
       })
       .then((res) => {

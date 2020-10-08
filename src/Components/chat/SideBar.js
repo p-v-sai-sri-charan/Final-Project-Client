@@ -16,6 +16,7 @@ const header = {
 
 function SideBar() {
   const [user, setUser] = useState([]);
+  console.log(user);
 
   useEffect(() => {
     axios
@@ -34,17 +35,7 @@ function SideBar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <Avatar />
-        <div className="sidebar__headerRight">
-          <IconButton>
-            <DonutLargeIcon />
-          </IconButton>
-          <IconButton>
-            <ChatIcon />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
-        </div>
+        <div className="sidebar__headerRight"></div>
       </div>
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">

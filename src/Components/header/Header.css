@@ -11,7 +11,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: ghostwhite;
+
+  background: -webkit-linear-gradient(to right, #5b86e5, #36d1dc);
+  background: linear-gradient(to right, #5b86e5, #36d1dc);
 }
 
 .topnav a {
@@ -68,4 +70,14 @@
 .header__logout {
   display: flex;
   float: 0.5em;
+}
+
+.custom__logo {
+  width: 100px;
+  height: 100px;
+  align-items: flex-start;
+  background: white;
+  -moz-border-radius: 70px;
+  -webkit-border-radius: 70px;
+  border-radius: 70px;
 }

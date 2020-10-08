@@ -46,7 +46,7 @@ const vpassword = (value) => {
   }
 };
 
-function Signup(props) {
+function Signup() {
   const form = useRef();
   const checkBtn = useRef();
   const history = useHistory();
@@ -90,10 +90,16 @@ function Signup(props) {
       password
     );
     console.log(result);
+    function myFunction() {
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 5000);
+    }
     if (checkBtn.current.context._errors.length === 0 && result.data.email) {
-      history.push("/profile");
-      window.location.reload();
       setMessage(result.data.message);
+      myFunction();
       setSuccessful(true);
     } else if (result.data.error) {
       setMessage(result.data.error);
@@ -104,15 +110,15 @@ function Signup(props) {
     <>
       <Form onSubmit={handleRegister} ref={form}>
         <h1>Create Account</h1>
-        <div class="social-container">
+        <div className="social-container">
           <Link to={"#"} className="social">
-            <i class="fab fa-facebook-f"></i>
+            <i className="fab fa-facebook-f"></i>
           </Link>
           <Link to={"#"} className="social">
-            <i class="fab fa-google-plus-g"></i>
+            <i className="fab fa-google-plus-g"></i>
           </Link>
           <Link to={"#"} className="social">
-            <i class="fab fa-linkedin-in"></i>
+            <i className="fab fa-linkedin-in"></i>
           </Link>
         </div>
         <span>or use your email for registration</span>
@@ -172,6 +178,7 @@ function Signup(props) {
         )}
         <CheckButton style={{ display: "none" }} ref={checkBtn} />
       </Form>
+      <div id="snackbar">{message || "Error"}</div>
     </>
   );
 }
