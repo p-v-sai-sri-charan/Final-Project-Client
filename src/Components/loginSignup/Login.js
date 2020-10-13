@@ -119,7 +119,7 @@ function Login() {
             validations={[required, vpassword]}
           />
         </div>
-        <Link to={"#"}>Forgot your password?</Link>
+        <Link to={"/forgot"}>Forgot your password?</Link>
         <div className="form-group">
           <button className="btn btn-primary btn-block" disabled={loading}>
             {loading && (

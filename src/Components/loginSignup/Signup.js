@@ -163,8 +163,7 @@ function Signup() {
           />
         </div>
         <button>Sign Up</button>
-
-        {message && (
+        {/* {message && (
           <div className="form-group">
             <div
               className={
@@ -174,8 +173,8 @@ function Signup() {
             >
               {message}
             </div>
-          </div>
-        )}
+            </div>
+            )}*/}
         <CheckButton style={{ display: "none" }} ref={checkBtn} />
       </Form>
       <div id="snackbar">{message || "Error"}</div>

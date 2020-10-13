@@ -54,10 +54,10 @@ function Friends() {
               {data ? (
                 data.map((item) => {
                   return (
-                    <li className="w3-bar w3-center">
-                      <IconButton className="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-center">
+                    <li className="w3-bar w3-center" key={item._id}>
+                      {/*<IconButton className="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-center">
                         <CancelIcon onClick={unfollowUser(item._id)} />
-                      </IconButton>
+                      </IconButton>*/}
                       <Link to={`/profile/${item._id}`}>
                         <img
                           src={item.pic}
@@ -67,7 +67,7 @@ function Friends() {
                         <div className="w3-bar-item">
                           <span className="w3-large">{item.username}</span>
                           <br />
-                          <span>Web Designer</span>
+                          <span></span>
                         </div>
                       </Link>
                     </li>

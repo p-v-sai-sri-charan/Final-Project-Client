@@ -7,6 +7,7 @@ import axios from "axios";
 import authHeader from "../../Services/authHeader";
 import { Link } from "react-router-dom";
 import NewPost from "../newPost/NewPost";
+import logo from "../../Components/Loader.svg";
 const header = {
   "Content-Type": "application/json",
   authorization: authHeader(),
@@ -17,15 +18,17 @@ function Feed() {
   const [data, setData] = useState([]);
   const { state, dispatch } = useContext(UserContext);
   const [counter, setCounter] = useState(0);
+  const [loading, setLoading] = useState(true);
   console.log(counter);
   console.log(data);
   useEffect(() => {
     axios
-      .get(URL + "/post/following", {
+      .get(URL + "/post/followingposts", {
         headers: header,
       })
       .then((res) => {
         setData(res.data.posts);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -43,13 +46,6 @@ function Feed() {
         }
       )
       .then((result) => {
-        const newData = data.map((item) => {
-          if (item._id == result._id) {
-            return result;
-          } else {
-            return item;
-          }
-        });
         setData(data);
         setCounter(counter + 1);
       })
@@ -70,13 +66,7 @@ function Feed() {
         }
       )
       .then((result) => {
-        const newData = data.map((item) => {
-          if (item._id == result._id) {
-            return result;
-          } else {
-            return item;
-          }
-        });
+        
         setData(data);
         setCounter(counter + 1);
       })
@@ -84,8 +74,12 @@ function Feed() {
         console.log(err);
       });
   };
-  if (!data) {
-    return <div>Loading...</div>;
+  if (loading === true) {
+    return (
+      <div>
+        <img src={logo}></img>
+      </div>
+    );
   }
   return (
     <div className="w3-col m7">
@@ -187,7 +181,9 @@ function Feed() {
           );
         })
       ) : (
-        <div>Loading...</div>
+        <div>
+          <img src="Infinity-1s-200px.svg"> </img>
+        </div>
       )}
     </div>
   );

@@ -39,10 +39,11 @@
   padding: 12px;
   border-radius: 50px;
   text-decoration: none;
+  flex-wrap: nowrap;
   font-size: 18px;
   color: black;
   display: flex;
-  align-content: space-between;
+  align-content: space-around;
   align-items: center;
 }
 

@@ -56,6 +56,9 @@ function NewPost() {
       )
       .then((result) => {
         console.log(result.data);
+        setSelectedFile('')
+        setBody('')
+
       })
       .catch((err) => {
         console.log(err);

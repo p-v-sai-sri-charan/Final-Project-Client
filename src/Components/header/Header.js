@@ -42,9 +42,9 @@ function Header() {
             </IconButton>
           </Link>
 
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+         {/* <a href="javascript:void(0);" class="icon" >
             <i class="fa fa-bars"></i>
-          </a>
+          </a>*/}
 
           <div className="header__logout">
             <IconButton onClick={handlelogout}>
